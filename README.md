@@ -4,6 +4,9 @@ A solid test setup for React components with Mocha, Chai, Sinon, Enzyme and Jest
 
 Read more about it: [React Testing Tutorial: Test Frameworks & Component Tests](https://www.robinwieruch.de/react-testing-tutorial/)
 
+
+Storybook from react testing
+[Storybook/testing](https://www.robinwieruch.de/visual-regression-testing-react-storybook)
 ## Features
 
 * React 16
