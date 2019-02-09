@@ -1,5 +1,0 @@
-{
-  "testRegex": "((\\.|/*.)(snapshot))\\.js?$",
-  "rootDir": "..",
-  "setupTestFrameworkScriptFile": "<rootDir>/test/jest.setup.js"
-}

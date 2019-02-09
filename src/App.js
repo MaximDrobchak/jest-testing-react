@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+
 import axios from 'axios';
 
 export const doIncrement = prevState => ({
@@ -21,7 +22,6 @@ class App extends Component {
     this.onIncrement = this.onIncrement.bind(this);
     this.onDecrement = this.onDecrement.bind(this);
   }
-
   componentDidMount () {
     axios
       .get('http://localhost:8080/counter')
