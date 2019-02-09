@@ -1,60 +1,27 @@
-import React, { Component } from 'react';
+import React, { useState } from 'react';
 
-import axios from 'axios';
+export const doMutationCount = (Fn, value) => Fn(value);
 
-export const doIncrement = prevState => ({
-  counter: prevState.counter + 1,
-});
+function App (){
+  const [ counter, setCounter ] = useState(0);
 
-export const doDecrement = prevState => ({
-  counter: prevState.counter - 1,
-});
+  const onIncrement = () => doMutationCount(setCounter, counter + 1);
+  const onDecrement = () => doMutationCount(setCounter, counter - 1);
 
-class App extends Component {
-  constructor () {
-    super();
+  return (
+    <div>
+      <h1>My Counter</h1>
+      <Counter counter={counter} />
 
-    this.state = {
-      counter: 0,
-      asyncCounters: null,
-    };
+      <button type='button' onClick={onIncrement}>
+        Increment
+      </button>
 
-    this.onIncrement = this.onIncrement.bind(this);
-    this.onDecrement = this.onDecrement.bind(this);
-  }
-  componentDidMount () {
-    axios
-      .get('http://localhost:8080/counter')
-      .then(counter => this.setState({ asyncCounters: counter }))
-      .catch(error => console.log(error));
-  }
-
-  onIncrement () {
-    this.setState(doIncrement);
-  }
-
-  onDecrement () {
-    this.setState(doDecrement);
-  }
-
-  render () {
-    const { counter } = this.state;
-
-    return (
-      <div>
-        <h1>My Counter</h1>
-        <Counter counter={counter} />
-
-        <button type='button' onClick={this.onIncrement}>
-          Increment
-        </button>
-
-        <button type='button' onClick={this.onDecrement}>
-          Decrement
-        </button>
-      </div>
-    );
-  }
+      <button type='button' onClick={onDecrement}>
+        Decrement
+      </button>
+    </div>
+  );
 }
 
 export const Counter = ({ counter }) => <p>{counter}</p>;
