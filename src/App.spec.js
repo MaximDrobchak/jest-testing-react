@@ -1,5 +1,11 @@
+import { doMutationCount } from './App';
 describe('Local State', () => {
-  it('should increment the countere', () => {});
+  it('should increment the countere', () => {
+    function test (x){
+      return x;
+    }
+    const value = 1;
 
-  it('should decrement the countere', () => {});
+    expect(doMutationCount(test, value)).to.equal(value);
+  });
 });
