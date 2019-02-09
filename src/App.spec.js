@@ -8,6 +8,4 @@ describe('Local State', () => {
 
     expect(doMutationCount(test, value)).to.equal(value);
   });
-
-  it('should decrement the countere', () => {});
 });
